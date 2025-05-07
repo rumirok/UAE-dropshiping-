@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Dropshipping Store</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#E94560',secondary:'#16213E'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        .search-input:focus {
+            outline: none;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .countdown-timer {
+            background: linear-gradient(135deg, #E94560, #16213E);
+        }
+        .category-item img {
+            transition: transform 0.3s ease;
+        }
+        .category-item:hover img {
+            transform: scale(1.1);
+        }
+        .language-switcher input:checked + .toggle-circle {
+            transform: translateX(100%);
+            background-color: #16213E;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <h1 class="font-['Pacifico'] text-primary text-2xl">logo</h1>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+                <!-- Language Toggle -->
+                <div class="relative inline-block w-12 h-6 rounded-full bg-gray-200">
+                    <input type="checkbox" id="language-toggle" class="sr-only language-toggle">
+                    <label for="language-toggle" class="cursor-pointer block w-full h-full">
+                        <span class="absolute left-1 top-1/2 transform -translate-y-1/2 text-[10px]">EN</span>
+                        <span class="absolute right-1 top-1/2 transform -translate-y-1/2 text-[10px]">AR</span>
+                        <span class="toggle-circle absolute left-1 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-primary rounded-full transition-transform duration-300"></span>
+                    </label>
+                </div>
+                
+                <!-- Location Selector -->
+                <div class="w-6 h-6 flex items-center justify-center cursor-pointer">
+                    <i class="ri-map-pin-line ri-lg text-gray-700"></i>
+                </div>
+                
+                <!-- Cart Icon -->
+                <div class="relative w-6 h-6 flex items-center justify-center cursor-pointer">
+                    <i class="ri-shopping-cart-line ri-lg text-gray-700"></i>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">3</span>
+                </div>
+                
+                <!-- User Account -->
+                <div class="w-6 h-6 flex items-center justify-center cursor-pointer">
+                    <i class="ri-user-line ri-lg text-gray-700"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="px-4 pb-3">
+            <div class="relative flex items-center">
+                <input type="text" placeholder="Search products... | ابحث عن المنتجات..." class="search-input w-full py-2 pl-10 pr-4 bg-gray-100 rounded-button text-sm border-none">
+                <i class="ri-search-line ri-lg absolute left-3 text-gray-500"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-[110px] pb-16">
+        <!-- Hero Banner -->
+        <section class="px-4 mb-6">
+            <div class="relative rounded-lg overflow-hidden h-40">
+                <img src="https://readdy.ai/api/search-image?query=modern%20e-commerce%20banner%20with%20electronics%20and%20fashion%20products%2C%20UAE%20style%2C%20Dubai%20skyline%2C%20minimalist%20design%2C%20promotional%20text%20in%20English%20and%20Arabic%2C%20high%20quality%20professional%20e-commerce%20banner&width=800&height=320&seq=1&orientation=landscape" alt="Hero Banner" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex flex-col justify-center pl-6">
+                    <h2 class="text-white text-xl font-semibold mb-1">Summer Sale | تخفيضات الصيف</h2>
+                    <p class="text-white text-sm mb-3">Up to 50% Off | خصم يصل إلى ٥٠٪</p>
+                    <button class="bg-primary text-white py-1.5 px-4 rounded-button text-sm font-medium w-max !rounded-button cursor-pointer">
+                        Shop Now | تسوق الآن
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Categories -->
+        <section class="mb-6">
+            <div class="px-4 mb-3 flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Categories | الفئات</h2>
+                <span class="text-primary text-sm cursor-pointer">View All | عرض الكل</span>
+            </div>
+            <div class="flex overflow-x-auto px-4 pb-2 hide-scrollbar">
+                <div class="category-item flex flex-col items-center mr-4 w-16">
+                    <div class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center mb-1">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Electronics%20gadget%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=100&height=100&seq=2&orientation=squarish" alt="Electronics" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-[10px] text-center white-space-nowrap overflow-hidden text-overflow-ellipsis">Electronics<br>الإلكترونيات</span>
+                </div>
+                <div class="category-item flex flex-col items-center mr-4 w-16">
+                    <div class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center mb-1">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Fashion%20clothing%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=100&height=100&seq=3&orientation=squarish" alt="Fashion" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-[10px] text-center white-space-nowrap overflow-hidden text-overflow-ellipsis">Fashion<br>الأزياء</span>
+                </div>
+                <div class="category-item flex flex-col items-center mr-4 w-16">
+                    <div class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center mb-1">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Home%20decor%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=100&height=100&seq=4&orientation=squarish" alt="Home" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-[10px] text-center white-space-nowrap overflow-hidden text-overflow-ellipsis">Home<br>المنزل</span>
+                </div>
+                <div class="category-item flex flex-col items-center mr-4 w-16">
+                    <div class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center mb-1">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Beauty%20products%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=100&height=100&seq=5&orientation=squarish" alt="Beauty" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-[10px] text-center white-space-nowrap overflow-hidden text-overflow-ellipsis">Beauty<br>الجمال</span>
+                </div>
+                <div class="category-item flex flex-col items-center mr-4 w-16">
+                    <div class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center mb-1">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Sports%20equipment%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=100&height=100&seq=6&orientation=squarish" alt="Sports" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-[10px] text-center white-space-nowrap overflow-hidden text-overflow-ellipsis">Sports<br>الرياضة</span>
+                </div>
+                <div class="category-item flex flex-col items-center w-16">
+                    <div class="w-14 h-14 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center mb-1">
+                        <img src="https://readdy.ai/api/search-image?query=icon%2C%203D%20cartoon%2C%20Kids%20toys%2C%20the%20icon%20should%20take%20up%2070%25%20of%20the%20frame%2C%20vibrant%20colors%20with%20soft%20gradients%2C%20minimalist%20design%2C%20smooth%20rounded%20shapes%2C%20subtle%20shading%2C%20no%20outlines%2C%20centered%20composition%2C%20isolated%20on%20white%20background%2C%20playful%20and%20friendly%20aesthetic%2C%20isometric%20perspective%2C%20high%20detail%20quality%2C%20clean%20and%20modern%20look%2C%20single%20object%20focus&width=100&height=100&seq=7&orientation=squarish" alt="Kids" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-[10px] text-center white-space-nowrap overflow-hidden text-overflow-ellipsis">Kids<br>الأطفال</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flash Sale -->
+        <section class="mb-6">
+            <div class="px-4 mb-3 flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Flash Sale | عروض فلاش</h2>
+                <div class="flex items-center">
+                    <div class="countdown-timer px-2 py-1 rounded-lg text-white text-xs mr-2">
+                        <span>11:24:36</span>
+                    </div>
+                    <span class="text-primary text-sm cursor-pointer">View All | عرض الكل</span>
+                </div>
+            </div>
+            <div class="flex overflow-x-auto px-4 pb-2 hide-scrollbar">
+                <div class="product-card flex-shrink-0 w-36 mr-3 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%20wireless%20earbuds%20with%20charging%20case%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=8&orientation=squarish" alt="Wireless Earbuds" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-primary text-white text-[10px] px-1.5 py-0.5 rounded">-30%</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Wireless Earbuds | سماعات لاسلكية</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 199</span>
+                            <span class="text-gray-400 line-through text-[10px] ml-1">AED 285</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-half-fill ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(124)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card flex-shrink-0 w-36 mr-3 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=smart%20watch%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=9&orientation=squarish" alt="Smart Watch" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-primary text-white text-[10px] px-1.5 py-0.5 rounded">-25%</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Smart Watch | ساعة ذكية</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 349</span>
+                            <span class="text-gray-400 line-through text-[10px] ml-1">AED 465</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-line ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(89)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card flex-shrink-0 w-36 mr-3 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=portable%20bluetooth%20speaker%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=10&orientation=squarish" alt="Bluetooth Speaker" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-primary text-white text-[10px] px-1.5 py-0.5 rounded">-40%</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Bluetooth Speaker | مكبر صوت بلوتوث</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 129</span>
+                            <span class="text-gray-400 line-through text-[10px] ml-1">AED 215</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(213)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card flex-shrink-0 w-36 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=power%20bank%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=11&orientation=squarish" alt="Power Bank" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-primary text-white text-[10px] px-1.5 py-0.5 rounded">-20%</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Power Bank | بنك الطاقة</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 89</span>
+                            <span class="text-gray-400 line-through text-[10px] ml-1">AED 110</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-line ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(76)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="mb-6">
+            <div class="px-4 mb-3 flex justify-between items-center">
+                <h2 class="text-lg font-semibold">Featured Products | منتجات مميزة</h2>
+                <span class="text-primary text-sm cursor-pointer">View All | عرض الكل</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4">
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20smartphone%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=12&orientation=squarish" alt="Smartphone" class="w-full h-full object-cover">
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Premium Smartphone | هاتف ذكي فاخر</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 2,499</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-half-fill ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(352)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=designer%20handbag%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=13&orientation=squarish" alt="Designer Handbag" class="w-full h-full object-cover">
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Designer Handbag | حقيبة يد مصمم</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 899</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-line ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(128)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20wireless%20headphones%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=14&orientation=squarish" alt="Wireless Headphones" class="w-full h-full object-cover">
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Wireless Headphones | سماعات رأس لاسلكية</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 599</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(201)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20smartwatch%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=15&orientation=squarish" alt="Premium Smartwatch" class="w-full h-full object-cover">
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Premium Smartwatch | ساعة ذكية فاخرة</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 799</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-half-fill ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(167)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers Banner -->
+        <section class="px-4 mb-6">
+            <div class="relative rounded-lg overflow-hidden h-32">
+                <img src="https://readdy.ai/api/search-image?query=special%20offer%20banner%20with%20UAE%20theme%2C%20Dubai%20skyline%2C%20promotional%20text%20in%20English%20and%20Arabic%2C%20high%20quality%20professional%20e-commerce%20banner%2C%20clean%20design%20with%20electronics%20products&width=800&height=256&seq=16&orientation=landscape" alt="Special Offers" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex flex-col justify-center pl-6">
+                    <h2 class="text-white text-lg font-semibold mb-1">Special Offers | عروض خاصة</h2>
+                    <p class="text-white text-xs mb-2">Free Shipping on Orders Over AED 200 | شحن مجاني للطلبات فوق ٢٠٠ درهم</p>
+                    <button class="bg-primary text-white py-1.5 px-4 rounded-button text-xs font-medium w-max !rounded-button cursor-pointer">
+                        Explore | استكشف
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- New Arrivals -->
+        <section class="mb-6">
+            <div class="px-4 mb-3 flex justify-between items-center">
+                <h2 class="text-lg font-semibold">New Arrivals | وصل حديثاً</h2>
+                <span class="text-primary text-sm cursor-pointer">View All | عرض الكل</span>
+            </div>
+            <div class="flex overflow-x-auto px-4 pb-2 hide-scrollbar">
+                <div class="product-card flex-shrink-0 w-36 mr-3 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%20tablet%20device%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=17&orientation=squarish" alt="Tablet" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-secondary text-white text-[10px] px-1.5 py-0.5 rounded">NEW</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Tablet Pro | تابلت برو</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 1,299</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-line ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(42)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card flex-shrink-0 w-36 mr-3 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20sunglasses%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=18&orientation=squarish" alt="Sunglasses" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-secondary text-white text-[10px] px-1.5 py-0.5 rounded">NEW</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Designer Sunglasses | نظارات شمسية</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 349</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-half-fill ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(28)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card flex-shrink-0 w-36 mr-3 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20perfume%20bottle%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=19&orientation=squarish" alt="Perfume" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-secondary text-white text-[10px] px-1.5 py-0.5 rounded">NEW</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Luxury Perfume | عطر فاخر</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 599</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(19)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card flex-shrink-0 w-36 bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-300">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20smart%20home%20device%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high%20resolution%2C%20clear%20details%2C%20soft%20shadows%2C%20minimalist%20style%2C%20e-commerce%20product%20image&width=300&height=300&seq=20&orientation=squarish" alt="Smart Home Device" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 bg-secondary text-white text-[10px] px-1.5 py-0.5 rounded">NEW</span>
+                        <button class="absolute bottom-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
+                            <i class="ri-heart-line ri-sm text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-xs font-medium mb-1 line-clamp-1">Smart Home Hub | جهاز المنزل الذكي</h3>
+                        <div class="flex items-center mb-1">
+                            <span class="text-primary font-semibold text-sm">AED 449</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex">
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-fill ri-xs text-yellow-400"></i>
+                                <i class="ri-star-line ri-xs text-yellow-400"></i>
+                            </div>
+                            <span class="text-[10px] text-gray-500">(31)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted Partners -->
+        <section class="px-4 mb-6">
+            <h2 class="text-lg font-semibold mb-3">Trusted Partners | شركاء موثوقون</h2>
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="flex items-center justify-center h-10">
+                        <i class="ri-visa-line ri-2x text-blue-600"></i>
+                    </div>
+                    <div class="flex items-center justify-center h-10">
+                        <i class="ri-mastercard-line ri-2x text-red-500"></i>
+                    </div>
+                    <div class="flex items-center justify-center h-10">
+                        <i class="ri-apple-fill ri-2x text-gray-800"></i>
+                    </div>
+                    <div class="flex items-center justify-center h-10">
+                        <i class="ri-paypal-line ri-2x text-blue-700"></i>
+                    </div>
+                    <div class="flex items-center justify-center h-10">
+                        <i class="ri-truck-line ri-2x text-gray-700"></i>
+                    </div>
+                    <div class="flex items-center justify-center h-10">
+                        <i class="ri-secure-payment-line ri-2x text-green-600"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tab Bar -->
+    <nav class="fixed bottom-0 w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.05)] z-50">
+        <div class="grid grid-cols-5 h-16">
+            <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-home-5-fill ri-lg text-primary"></i>
+                </div>
+                <span class="text-[10px] mt-0.5 text-primary">Home<br>الرئيسية</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-apps-line ri-lg text-gray-500"></i>
+                </div>
+                <span class="text-[10px] mt-0.5 text-gray-500">Categories<br>الفئات</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-shopping-bag-line ri-lg text-gray-500"></i>
+                </div>
+                <span class="text-[10px] mt-0.5 text-gray-500">Orders<br>الطلبات</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-heart-line ri-lg text-gray-500"></i>
+                </div>
+                <span class="text-[10px] mt-0.5 text-gray-500">Wishlist<br>المفضلة</span>
+            </a>
+            <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-user-line ri-lg text-gray-500"></i>
+                </div>
+                <span class="text-[10px] mt-0.5 text-gray-500">Account<br>الحساب</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- WhatsApp Contact Button -->
+    <a href="#" class="fixed bottom-20 right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg cursor-pointer z-50">
+        <i class="ri-whatsapp-line ri-xl text-white"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageToggle = document.getElementById('language-toggle');
+            
+            languageToggle.addEventListener('change', function() {
+                const isRTL = this.checked;
+                document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+            });
+        });
+    </script>
+</body>
+</html>
